@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.4'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'jp.rouh'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//Base32エンコーダ
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+	//QRコード画像生成
+	implementation group: 'com.google.zxing', name: 'core', version: '3.3.0'
+	implementation group: 'com.google.zxing', name: 'javase', version: '3.3.0'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
